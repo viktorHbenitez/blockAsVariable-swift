@@ -41,6 +41,7 @@
 		E4615A7E2118BDB900365BAD = {
 			isa = PBXGroup;
 			children = (
+				E4615A9E21190AD800365BAD /* BlockAsVariable-swift.md */,
 				E4615A892118BDB900365BAD /* blockAsVariable-swift */,
 				E4615A882118BDB900365BAD /* Products */,
 			);
@@ -64,7 +65,6 @@
 				E4615A932118BDBA00365BAD /* LaunchScreen.storyboard */,
 				E4615A962118BDBA00365BAD /* Info.plist */,
 				E4615A9C2118BE6200365BAD /* SecondViewController.swift */,
-				E4615A9E21190AD800365BAD /* BlockAsVariable-swift.md */,
 			);
 			path = "blockAsVariable-swift";
 			sourceTree = "<group>";
