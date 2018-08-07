@@ -26,7 +26,7 @@ objectInstanceClass.nameMethodWithHandler { (inParameters) in
 ```
 Example result:
 in ViewController  
-![imagen](../master/assets/resultClosureFromService.png)
+![imagen](../master/assets/ClosureInService.png)
 
 
 
