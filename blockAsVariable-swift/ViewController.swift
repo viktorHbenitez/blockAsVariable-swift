@@ -11,19 +11,28 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var lblShowUserText: UILabel!
+    let servicios : prueba_WS = prueba_WS()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        servicios.QueryTraerTodosLosDatos { (objetoModelo) in
+            self.lblShowUserText.text = objetoModelo.strPrueba
+        }
+        
     }
     
     @IBAction func btnShowSecondVC(_ sender: UIButton) {
         
-        if let SecondVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SecondViewController") as? SecondViewController{
-            
-            SecondVC.sendBlk { (strUserText: String) in
-                self.lblShowUserText.text = strUserText
+        if let secondVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SecondViewController") as? SecondViewController{
+           
+            secondVC.sendHandler { (strTextUser) in
+                if let text = strTextUser{
+                    self.lblShowUserText.text = text
+                }
             }
-            present(SecondVC, animated: true, completion: nil)
+            
+            present(secondVC, animated: true, completion: nil)
             
         }
         

@@ -11,15 +11,17 @@ import UIKit
 
 class SecondViewController: UIViewController{
     
-    // Declarate the block
-    var secondHandler: ((String) -> Void)?
+    // Declarate the block syntax for function types is (in) -> out.
+    typealias CompletionBlock = (String?) -> Void
+    
+    var secondHandler : CompletionBlock?
+    
     @IBOutlet weak var txfSetText: UITextField!
     
     override func viewDidLoad() {
        super.viewDidLoad()
         
     }
-    
     
     @IBAction func btnSendAnswer(_ sender: UIButton) {
         callback()
@@ -28,18 +30,16 @@ class SecondViewController: UIViewController{
     }
     
     func callback()  {
-        
         guard let handler = secondHandler else {return}
         
         if let userText = txfSetText.text {
             handler(userText)
         }
     }
-    
-    func sendBlk(completionHandler : @escaping (String)-> ()) {
-        secondHandler = completionHandler
+
+    func sendHandler(handler:@escaping CompletionBlock) {
+        secondHandler = handler
     }
-    
-    
+   
     
 }
